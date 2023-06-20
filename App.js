@@ -21,10 +21,15 @@ export default function App() {
     setTodoList((todoList) => todoList. filter((_, i) => i !== 0));
   }
 
-  console.log(doneList)
+  const Delete=(index)=>{
+    setDoneList((doneList) => doneList. filter((_, index) => index !== 0));
+  }
 
   return (
     <View style={styles.container}>
+      <StatusBar
+        
+      />
       <View style={styles.box}>
         <View style={styles.smallBox}>
           <View style={styles.head}>
@@ -61,7 +66,7 @@ export default function App() {
                 return(
                   <View style={styles.listEl} key={i}>
                     <Text>{item.text}</Text>
-                    <Text>Delete</Text>
+                    <Text onPress={()=>{Delete(i)}}>Delete</Text>
                   </View>
                 )
               })
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
     justifyContent:"space-between"
   },
   smallBox:{
-    border:"1px solid blue",
+    border:"1px solid grey",
     width:"48%",
     height:"100%",
   },
@@ -108,7 +113,7 @@ const styles = StyleSheet.create({
     fontWeight:"600"
   },
   todoList:{
-    border:"1px solid red",
+    // border:"1px solid red",
     width:"100%",
     height:"65%",
     overflow:"auto",
@@ -116,7 +121,7 @@ const styles = StyleSheet.create({
     alignItems:"center"
   },
   listEl:{
-    border:"1px solid red",
+    // border:"1px solid red",
     width:"80%",
     height:"30px",
     margin:"10px",
@@ -126,7 +131,7 @@ const styles = StyleSheet.create({
     flexDirection:"row"
   },
   addBox:{
-    border:"1px solid red",
+    // border:"1px solid red",
     width:"100%",
     height:"15%",
     display:"flex",
@@ -141,7 +146,7 @@ const styles = StyleSheet.create({
     marginRight:"10px"
   },
   doneList:{
-    border:"1px solid blue",
+    // border:"1px solid blue",
     width:"100%",
     height:"80%",
     overflow:"auto"
